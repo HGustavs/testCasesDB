@@ -70,26 +70,22 @@
 <tr>
 		<td>SSH inlogg studentkonto</td>
 		<td><input type='checkbox' name='sinl' onchange="checkboxclicked('inl')" ></td>
-		<td><input type='text' name='kinl'></td>
-		<td><input type='hidden' id='dinl' name='dinl'></td>
+		<td><input type='text' name='kinl'><input type='hidden' id='dinl' name='dinl'></td>
 </tr>
 <tr>
 		<td>Uppladdning av html fil med ssh</td>
 		<td><input type='checkbox' name='sfileu' onchange="checkboxclicked('fileu')" ></td>
-		<td><input type='text' name='kfileu'></td>
-		<td><input type='hidden' id='dfileu' name='dfileu'></td>
+		<td><input type='text' name='kfileu'><input type='hidden' id='dfileu' name='dfileu'></td>
 </tr>
 <tr>
 		<td>Bekräftad nedladdning html fil med browser</td>
 		<td><input type='checkbox' name='sfiled' onchange="checkboxclicked('filed')" ></td>
-		<td><input type='text' name='kfiled'></td>
-		<td><input type='hidden' id='dfiled' name='dfiled'></td>
+		<td><input type='text' name='kfiled'><input type='hidden' id='dfiled' name='dfiled'></td>
 </tr>	
 <tr>
 		<td>Körning av php databastest</td>
 		<td><input type='checkbox' name='sphp' onchange="checkboxclicked('php')" ></td>
-		<td><input type='text' name='kphp'></td>
-		<td><input type='hidden' id='dphp' name='dphp'></td>
+		<td><input type='text' name='kphp'><input type='hidden' id='dphp' name='dphp'></td>
 </tr>		
 </table>
 	<button>Save Confirmed Test</button>
