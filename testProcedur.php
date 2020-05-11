@@ -83,10 +83,15 @@
 		<td><input type='text' name='kinl'><input type='hidden' id='dinl' name='dinl'></td>
 </tr>
 <tr>
-		<td>Uppladdning av html fil med ssh</td>
+		<td>Uppladdning av html fil med ssh trådat nät</td>
 		<td><input type='checkbox' name='sfileu' onchange="checkboxclicked('fileu')" ></td>
 		<td><input type='text' name='kfileu'><input type='hidden' id='dfileu' name='dfileu'></td>
 </tr>
+<tr>
+		<td>Uppladdning av html fil med ssh eduroam</td>
+		<td><input type='checkbox' name='sedu' onchange="checkboxclicked('edu')" ></td>
+		<td><input type='text' name='kedu'><input type='hidden' id='dedu' name='dedu'></td>
+</tr>	
 <tr>
 		<td>Bekräftad nedladdning html fil med browser</td>
 		<td><input type='checkbox' name='sfiled' onchange="checkboxclicked('filed')" ></td>
@@ -108,12 +113,12 @@
 			  $log_db = new PDO('sqlite:./testprocedur.db');
 				$log_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$log_db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-				$sql = 'CREATE TABLE IF NOT EXISTS testprocedur(id INTEGER PRIMARY KEY,sign text,datum TIMESTAMP,sinl TEXT,dinl TIMESTAMP, kinl TEXT,sfileu TEXT,dfileu TIMESTAMP, kfileu TEXT,sfiled TEXT,dfiled TIMESTAMP, kfiled TEXT,sphp TEXT,dphp TIMESTAMP, kphp TEXT);';
+				$sql = 'CREATE TABLE IF NOT EXISTS testprocedur(id INTEGER PRIMARY KEY,sign text,datum TIMESTAMP,sinl TEXT,dinl TIMESTAMP, kinl TEXT,sfileu TEXT,dfileu TIMESTAMP, kfileu TEXT,sfiled TEXT,dfiled TIMESTAMP, kfiled TEXT,sphp TEXT,dphp TIMESTAMP, kphp TEXT,sedu TEXT,dedu TIMESTAMP, kedu TEXT);';
 				$log_db->exec($sql);
 			
 				$sign=$_POST['sign'];
 			
-				$cols=Array("inl","fileu","filed","php");
+				$cols=Array("inl","fileu","filed","php","edu");
 				$params=Array();
 			
 				foreach($cols as $col){
@@ -134,7 +139,7 @@
 						}							 			 
 				}
 			
-				$query = $log_db->prepare('INSERT INTO testprocedur(datum,sign,sinl,dinl,kinl,sfileu,dfileu,kfileu,sfiled,dfiled,kfiled,sphp,dphp,kphp) VALUES (CURRENT_TIMESTAMP,:sign,:sinl,:dinl,:kinl,:sfileu,:dfileu,:kfileu,:sfiled,:dfiled,:kfiled,:sphp,:dphp,:kphp)');
+				$query = $log_db->prepare('INSERT INTO testprocedur(datum,sign,sinl,dinl,kinl,sfileu,dfileu,kfileu,sfiled,dfiled,kfiled,sphp,dphp,kphp,sedu,dedu,kedu) VALUES (CURRENT_TIMESTAMP,:sign,:sinl,:dinl,:kinl,:sfileu,:dfileu,:kfileu,:sfiled,:dfiled,:kfiled,:sphp,:dphp,:kphp,:sedu,:dedu,:kedu)');
 				$query->bindParam(':sign', $sign);
 				
 				foreach($cols as $col){
