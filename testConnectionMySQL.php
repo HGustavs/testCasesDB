@@ -23,7 +23,7 @@
 	</style>
 </head>
 
-<body style='font-family:Arial Narrow;'>
+<body>
 
 <?php
  		echo "<h3>Connecting</h3>";
