@@ -1,10 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <head>
 	<script>
 	function checkboxclicked(boxid)
 	{
 			var currentdate = new Date(); 
-			var datetime = currentdate.getFullYear()+"-"+(currentdate.getMonth()+1)+"-"+(currentdate.getDate())+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
+			
+			var dat=(currentdate.getDate());
+			if(dat<10) dat="0"+dat;
+		
+			var mon=(currentdate.getMonth()+1);
+			if(mon<10) mon="0"+mon;
+		
+			var datetime = currentdate.getFullYear()+"-"+mon+"-"+dat+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
 			document.getElementById("d"+boxid).value=datetime;
 	}
 		
@@ -46,7 +55,7 @@
 		}
 		
 		tr:hover {
-			background-color: #fecc56;
+			border: 2px solid black;
 		}		
 		
 	</style>
@@ -149,7 +158,13 @@
 					echo "<tr>";
 					foreach($row as $colname => $col){
 							if(!is_numeric($colname)){
-									echo "<th>".$colname."</th>";
+									if($colname=="sign"||$colname=="datum"){
+											echo "<th>".$colname."</th>";								
+									}else{
+											if(substr($colname,0,1)=="k"){
+													echo "<th>".substr($colname,1)."</th>";
+											}									
+									}
 							}
 					}
 					echo "</tr>";
@@ -157,7 +172,24 @@
 			echo "<tr>";
 			foreach($row as $colname => $col){
 					if(!is_numeric($colname)){
-							echo "<td>".$col."</td>";
+							if($colname=="sign"||$colname=="datum"){
+									echo "<td>".$col."</td>";								
+							}else{
+									if(substr($colname,0,1)=="k"){
+											$name=substr($colname,1);
+											if($row['s'.$name]=="on"){
+													echo "<td style='background-color:#dfb;'>";											
+											}else{
+													echo "<td style='background-color:#fde;'>";												
+											}
+
+											echo $row['d'.$name];
+											if( $row['d'.$name]!=""){
+													echo "<br>".$row['k'.$name];
+											}
+											echo "</td>";
+									}
+							}
 					}
 			}
 			echo "</tr>";
