@@ -39,9 +39,10 @@
 				color:white;
 				background:black;
 				border:none;
+				font-size:16px;
 			
-				margin:3px;
-				padding:3px;
+				margin:6px;
+				padding:6px;
 		}
 		
 		tr:hover {
