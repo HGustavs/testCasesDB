@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+	<script>
+	function makebox(boxid,url)
+	{
+			var doc=document.getElementById(boxid);
+			doc.src=url+"&rnd="+Math.round((Math.random()*856));
+	}
+		
+	function setup()
+	{
+			makebox("E101","https://cloud.timeedit.net/his/web/timeedit/p/pss/schedule/schema.html?tab=33&object=E101");
+			makebox("E102","https://cloud.timeedit.net/his/web/timeedit/p/pss/schedule/schema.html?tab=33&object=S_GUSH");
+			makebox("E104","https://cloud.timeedit.net/his/web/timeedit/p/pss/schedule/schema.html?tab=33&object=S_LOFU");
+		
+	}
+		
+	</script>
+	<style>
+		body{
+				font-family:Arial Narrow;
+				margin:0px;
+				padding:0px;
+		}
+		
+		.tab{
+				position: absolute;
+				top:0px;
+				height:100%;
+				width:100%;
+		}
+		
+		.babs{
+				height:100%;
+				width:33%;
+		}
+		
+		.maincamp{
+				height: calc(100% - 45px);		
+		}
+		
+		.bandcamp{
+				height:45px;
+				font-size:30px;
+		}
+		
+		.iframe{
+				width:100%;
+				height: 100%;		
+		}
+			
+	</style>
+</head>
+
+<body onload="setup();">
+	<table class='tab'>
+		<tr class='bandcamp'>
+			<th>E101</th>
+			<th>E102</th>
+			<th>E104</th>
+		</tr>
+		<tr class='maincamp'>
+			<td class='babs'><iframe class='iframe' id="E101"></iframe></td>
+			<td class='babs'><iframe class='iframe' id="E102"></iframe></td>
+			<td class='babs'><iframe class='iframe' id="E104"></iframe></td>			
+		</tr>
+	</table>
+</body>
+</html>
